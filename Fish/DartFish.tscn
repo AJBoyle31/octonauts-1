@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/enemies/fish-dart.png" type="Texture" id=1]
+[ext_resource path="res://Overlay/Hurtbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Fish/DartFish.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 39, 20 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 39, 0, 39, 20 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 78, 0, 39, 20 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 117, 0, 39, 20 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "animate",
+"speed": 7.0
+} ]
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 5.09665
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 4.69056
+height = 16.0
+
+[node name="DartFish" type="KinematicBody2D" groups=[
+"Fish",
+]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 5 )
+animation = "animate"
+frame = 2
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 6 )
+disabled = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Hurtbox" parent="." instance=ExtResource( 2 )]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+rotation = 1.5708
+shape = SubResource( 7 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
+
+[editable path="Hurtbox"]
