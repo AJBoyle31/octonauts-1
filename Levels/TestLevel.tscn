@@ -1,0 +1,42 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Levels/Tiles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/Props.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fish/Fish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Mines/LargeMine.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fish/DartFish.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Mines/SmallMine.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Mines/MediumMine.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Fish/BigFish.tscn" type="PackedScene" id=9]
+[ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=10]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Tiles" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -65473, 1, 0, -65464, 1, 0, -65455, 1, 0, -65446, 1, 0, -65437, 1, 0, -65428, 1, 0, -65419, 1, 0, -65410, 1, 0, -65401, 1, 0, -65392, 1, 0, -65383, 1, 0, -65374, 1, 0, -65365, 1, 0, -65356, 1, 0, -65353, 1, 0, 65599, 3, 0, 262331, 2, 0, 524351, 3, 0, 852155, 2, 0, 1114175, 3, 0, 1441979, 4, 0, 1703999, 3, 0, 2031803, 2, 0, 2293823, 3, 0, 2621627, 2, 0, 2883647, 3, 0, 3211451, 2, 0, 3473471, 3, 0, 3801275, 2, 0, 4063295, 3, 0, 4391099, 2, 0, 4456511, 6, 0, 4456532, 6, 0, 4456553, 6, 0, 4456574, 6, 0, 4456595, 6, 0, 4456616, 6, 0 )
+
+[node name="Props" parent="." instance=ExtResource( 3 )]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1024, 256 )
+
+[node name="LargeMine" parent="." instance=ExtResource( 5 )]
+position = Vector2( 688, 176 )
+
+[node name="MediumMine" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1304, 136 )
+
+[node name="SmallMine" parent="." instance=ExtResource( 7 )]
+position = Vector2( 896, 136 )
+
+[node name="BigFish" parent="." instance=ExtResource( 9 )]
+position = Vector2( 592, 504 )
+
+[node name="DartFish" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1448, 504 )
+
+[node name="RedFish" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1448, 256 )
+
+[node name="HUD" parent="." instance=ExtResource( 10 )]

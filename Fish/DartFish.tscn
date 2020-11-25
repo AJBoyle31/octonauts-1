@@ -28,8 +28,9 @@ animations = [ {
 "speed": 7.0
 } ]
 
-[sub_resource type="CircleShape2D" id=6]
-radius = 5.09665
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 6.75045
+height = 20.1569
 
 [sub_resource type="CapsuleShape2D" id=7]
 radius = 4.69056
@@ -38,19 +39,21 @@ height = 16.0
 [node name="DartFish" type="KinematicBody2D" groups=[
 "Fish",
 ]]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 0
 script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "animate"
-frame = 2
+frame = 3
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
 shape = SubResource( 6 )
-disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true

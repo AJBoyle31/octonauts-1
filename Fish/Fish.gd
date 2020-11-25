@@ -5,8 +5,9 @@ var fishDeath = preload("res://Effects/FishDeath.tscn")
 
 export var ACCELERATION = 500
 export var FRICTION = 400
-var MAX_SPEED = 0
-var wanderTimer = 1
+export var MAX_SPEED = 75
+export var wanderTimer = 1
+export var random: bool = false
 
 var randomSpeed = RandomNumberGenerator.new()
 var randomTimer = RandomNumberGenerator.new()
@@ -22,13 +23,13 @@ enum {
 	CHASE
 }
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	randomSpeed.randomize()
-	randomTimer.randomize()
-	MAX_SPEED = randomSpeed.randi_range(50, 100)
-	timer.wait_time = randomTimer.randf_range(0.5, 4.5)
+	if random: 
+		randomSpeed.randomize()
+		randomTimer.randomize()
+		MAX_SPEED = randomSpeed.randi_range(50, 100)
+		timer.wait_time = randomTimer.randf_range(0.5, 4.5)
 	
 
 func _physics_process(delta):

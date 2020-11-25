@@ -29,7 +29,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=6]
-radius = 13.4393
+radius = 19.401
 
 [sub_resource type="CircleShape2D" id=7]
 radius = 14.0544
@@ -37,20 +37,20 @@ radius = 14.0544
 [node name="BigFish" type="KinematicBody2D" groups=[
 "Fish",
 ]]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 0
 script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 5 )
 animation = "animate"
-frame = 3
 playing = true
 offset = Vector2( -3, -3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 6 )
-disabled = true
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0

@@ -7,10 +7,10 @@
 
 [node name="BlueBackground" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.3, 0.3 )
-motion_mirroring = Vector2( 576, 512 )
+motion_mirroring = Vector2( 864, 768 )
 
 [node name="Sprite" type="Sprite" parent="BlueBackground"]
-scale = Vector2( 2, 2 )
+scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 centered = false
 
