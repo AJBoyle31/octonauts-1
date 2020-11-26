@@ -1,6 +1,6 @@
 extends Node2D
 
-const newScene = preload("res://World.tscn")
+export var next_level: PackedScene 
 
 onready var player = $Player
 
@@ -10,4 +10,4 @@ func _ready():
 
 
 func _on_Button_pressed():
-	get_tree().change_scene_to(newScene)
+	get_tree().change_scene_to(next_level)

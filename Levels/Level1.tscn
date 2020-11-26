@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Levels/Tiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Props.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/ParallaxBackground.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/NextLevel.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Levels/Level2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Fish/BigFish.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Mines/MediumMine.tscn" type="PackedScene" id=9]
+
+[sub_resource type="CapsuleShape2D" id=1]
 
 [node name="Level1" type="Node2D"]
 
@@ -19,6 +26,49 @@ tile_data = PoolIntArray( 3539005, 7, 0, 5439670, 5, 0, 5505115, 3, 0, 6488181, 
 [node name="Player" parent="Characters" instance=ExtResource( 3 )]
 position = Vector2( 1880, 1104 )
 
+[node name="BigFish" parent="Characters" instance=ExtResource( 8 )]
+position = Vector2( 1564.77, 490.554 )
+
+[node name="BigFish2" parent="Characters" instance=ExtResource( 8 )]
+position = Vector2( 1123.04, 501.88 )
+
+[node name="BigFish3" parent="Characters" instance=ExtResource( 8 )]
+position = Vector2( 413.244, 486.778 )
+
+[node name="BigFish4" parent="Characters" instance=ExtResource( 8 )]
+position = Vector2( 1391.1, 305.555 )
+
+[node name="BigFish5" parent="Characters" instance=ExtResource( 8 )]
+position = Vector2( 681.304, 1094.63 )
+
+[node name="MediumMine" parent="Characters" instance=ExtResource( 9 )]
+position = Vector2( 105.714, 736.221 )
+
+[node name="MediumMine2" parent="Characters" instance=ExtResource( 9 )]
+position = Vector2( 268.06, 543.671 )
+
+[node name="MediumMine3" parent="Characters" instance=ExtResource( 9 )]
+position = Vector2( 1680.09, 260.509 )
+
+[node name="MediumMine4" parent="Characters" instance=ExtResource( 9 )]
+position = Vector2( 1181.73, 751.323 )
+
+[node name="MediumMine5" parent="Characters" instance=ExtResource( 9 )]
+position = Vector2( 1110, 1117.55 )
+
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
+[node name="NextLevel" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2002.62, 568.275 )
+collision_layer = 1
+next_level = ExtResource( 6 )
+
+[node name="CollisionShape2D" parent="NextLevel" index="0"]
+position = Vector2( -0.406128, 0.420776 )
+shape = SubResource( 1 )
+
+[node name="HUD" parent="." instance=ExtResource( 7 )]
+
 [editable path="ParallaxBackground"]
+
+[editable path="NextLevel"]

@@ -64,5 +64,3 @@ func _on_Timer_timeout():
 func _on_Hurtbox_area_entered(area):
 	fish_death()
 	queue_free()
-
-

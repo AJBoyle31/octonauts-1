@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/environment/background.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/Fonts/MinecraftTen-VGORe.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Levels/Intro.gd" type="Script" id=4]
+[ext_resource path="res://Levels/Level1.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -16,6 +17,7 @@ font_data = ExtResource( 3 )
 
 [node name="Intro" type="Node2D"]
 script = ExtResource( 4 )
+next_level = ExtResource( 5 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 992, 636 )
@@ -27,7 +29,7 @@ position = Vector2( 992, 624 )
 
 [node name="AnimatedSprite" parent="Player" index="0"]
 animation = "idle"
-frame = 4
+frame = 0
 
 [node name="Camera2D" parent="Player" index="3"]
 zoom = Vector2( 0.25, 0.25 )

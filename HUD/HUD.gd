@@ -35,10 +35,10 @@ func update_score(value):
 func update_counter():
 	var count = get_tree().get_nodes_in_group("Fish").size()
 	fishCounter.text = "Fish Left: " + str(count)
-	if count <= 0:
-		$Winner.visible = true
-		$ResetButton.visible = true
-		emit_signal("game_over")
+	#if count <= 0:
+	#	$Winner.visible = true
+	#	$ResetButton.visible = true
+	#	emit_signal("game_over")
 
 func _on_ResetButton_pressed():
 	$GameOver.visible = false

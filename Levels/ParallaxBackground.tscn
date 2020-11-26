@@ -7,12 +7,14 @@
 
 [node name="BlueBackground" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.3, 0.3 )
-motion_mirroring = Vector2( 864, 768 )
+motion_mirroring = Vector2( 432, 384 )
 
 [node name="Sprite" type="Sprite" parent="BlueBackground"]
-scale = Vector2( 3, 3 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 842, 520 )
 
 [node name="GreenCaves" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.75, 0.75 )
