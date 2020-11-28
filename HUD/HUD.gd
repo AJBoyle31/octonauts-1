@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var score = 0 setget update_score
+#var score = 0 setget update_score
 var hearts = 4 setget set_hearts
 var max_hearts = 4 setget set_max_hearts
 var stats = PlayerStats
@@ -13,11 +13,11 @@ onready var scoreLabel = $Container/ScoreLabel
 onready var fishCounter = $Container/FishCounter
 onready var heartUIFull = $Health/HeartUIFull
 onready var heartUIEmpty = $Health/HeartUIEmpty
-
+#onready var score = stats.currentScore
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	update_score(score)
+	update_score(PlayerScore.score)
 	PlayerScore.connect("score_changed", self, "update_score")
 	self.max_hearts = PlayerStats.max_health
 	self.hearts = PlayerStats.health
@@ -45,7 +45,7 @@ func _on_ResetButton_pressed():
 	$ResetButton.visible = false
 	$Winner.visible = false
 	heartUIFull.visible = true
-	update_score(0) 
+	PlayerScore.myScore = 0
 	get_tree().reload_current_scene()
 
 func set_hearts(value):
