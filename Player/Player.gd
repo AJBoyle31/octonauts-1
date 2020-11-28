@@ -31,7 +31,7 @@ onready var sprite = $AnimatedSprite
 
 
 func _ready():
-	score.myScore = 0
+	#score.myScore = 0
 	stats.health = stats.max_health
 	alive = true
 	stats.connect("no_health", self, "_on_HUD_game_over")

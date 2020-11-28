@@ -27,19 +27,7 @@ tile_data = PoolIntArray( 3539005, 7, 0, 5439670, 5, 0, 5505115, 3, 0, 6488181, 
 position = Vector2( 1880, 1104 )
 
 [node name="BigFish" parent="Characters" instance=ExtResource( 8 )]
-position = Vector2( 1564.77, 490.554 )
-
-[node name="BigFish2" parent="Characters" instance=ExtResource( 8 )]
-position = Vector2( 1123.04, 501.88 )
-
-[node name="BigFish3" parent="Characters" instance=ExtResource( 8 )]
-position = Vector2( 413.244, 486.778 )
-
-[node name="BigFish4" parent="Characters" instance=ExtResource( 8 )]
-position = Vector2( 1391.1, 305.555 )
-
-[node name="BigFish5" parent="Characters" instance=ExtResource( 8 )]
-position = Vector2( 681.304, 1094.63 )
+position = Vector2( 1757.32, 592.492 )
 
 [node name="MediumMine" parent="Characters" instance=ExtResource( 9 )]
 position = Vector2( 105.714, 736.221 )
