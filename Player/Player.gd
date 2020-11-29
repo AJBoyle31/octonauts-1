@@ -11,6 +11,7 @@ export var FAST_SPEED = 225
 
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
+var mouse_click = Vector2.ZERO
 var state = MOVE
 var rush_vector = Vector2.ZERO
 var facingRight = true
@@ -22,10 +23,12 @@ enum {
 	MOVE,
 	RUSH,
 	FAST,
-	HURT
+	HURT,
+	MOUSE
 }
 
 onready var sprite = $AnimatedSprite
+onready var camera = $Camera2D
 
 # 2048, 1200
 
@@ -50,6 +53,8 @@ func _physics_process(delta):
 			fast_state(delta)
 		HURT:
 			hurt_state(delta)
+		MOUSE:
+			mouse_state(delta)
 	
 
 func move_state(delta):
@@ -58,14 +63,18 @@ func move_state(delta):
 		input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 		input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 		input_vector = input_vector.normalized()
-		if input_vector != Vector2.ZERO:
-			rush_vector = input_vector
-			sprite.flip_h = input_vector.x < 0
-			sprite.play("swim")
-			velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
-		else:
-			sprite.play("idle")
-			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		if Input.is_mouse_button_pressed(BUTTON_LEFT):
+			mouse_click = get_global_mouse_position()
+			state = MOUSE
+		else: 
+			if input_vector != Vector2.ZERO:
+				rush_vector = input_vector
+				sprite.flip_h = input_vector.x < 0
+				sprite.play("swim")
+				velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+			else:
+				sprite.play("idle")
+				velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		
 		move()
 		
@@ -74,7 +83,20 @@ func move_state(delta):
 		
 		if Input.is_action_pressed("fast"):
 			state = FAST
-	
+			
+
+
+func mouse_state(delta):
+	sprite.play("swim")
+	velocity = (mouse_click - self.global_position).normalized() * MAX_SPEED
+	sprite.flip_h = velocity.x < 0
+	move()
+	if self.global_position.distance_to(mouse_click) < 3.0:
+		state = MOVE
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+			mouse_click = get_global_mouse_position()
+
+
 
 func rush_state(delta):
 	velocity = velocity.move_toward(rush_vector * RUSH_SPEED, RUSH_ACCELERATION * delta)

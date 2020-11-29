@@ -29,7 +29,7 @@ position = Vector2( 992, 624 )
 
 [node name="AnimatedSprite" parent="Player" index="0"]
 animation = "idle"
-frame = 0
+frame = 5
 
 [node name="Camera2D" parent="Player" index="3"]
 zoom = Vector2( 0.25, 0.25 )
