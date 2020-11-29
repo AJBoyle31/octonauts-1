@@ -94,7 +94,7 @@ func mouse_state(delta):
 	if self.global_position.distance_to(mouse_click) < 3.0:
 		state = MOVE
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
-			mouse_click = get_global_mouse_position()
+		mouse_click = get_global_mouse_position()
 
 
 
