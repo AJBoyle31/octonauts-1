@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Levels/Tiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,12 @@
 [ext_resource path="res://Mines/MediumMine.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Fish/BigFish.tscn" type="PackedScene" id=9]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Curve2D" id=1]
+bake_interval = 10.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 960, 384, 0, 0, 0, 0, 960, 384, 0, 0, 0, 0, 960, 384, 0, 0, 0, 0, 1184, 384, 0, 0, 0, 0, 1312, 256, 0, 0, 0, 0, 864, 280, 0, 0, 0, 0, 960, 384 )
+}
 
 [node name="TestLevel" type="Node2D"]
 
@@ -40,3 +46,15 @@ position = Vector2( 1448, 504 )
 position = Vector2( 1448, 256 )
 
 [node name="HUD" parent="." instance=ExtResource( 10 )]
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Paths"]
+position = Vector2( -8, -80 )
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Paths/Path2D"]
+position = Vector2( 960, 384 )
+rotate = false
+
+[node name="DartFish" parent="Paths/Path2D/PathFollow2D" instance=ExtResource( 6 )]
