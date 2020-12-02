@@ -69,7 +69,6 @@ func move_state(delta):
 		else: 
 			if input_vector != Vector2.ZERO:
 				rush_vector = input_vector
-				sprite.flip_h = input_vector.x < 0
 				sprite.play("swim")
 				velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
 			else:
@@ -89,14 +88,20 @@ func move_state(delta):
 func mouse_state(delta):
 	sprite.play("swim")
 	velocity = (mouse_click - self.global_position).normalized() * MAX_SPEED
-	sprite.flip_h = velocity.x < 0
 	move()
 	if self.global_position.distance_to(mouse_click) < 3.0:
 		state = MOVE
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
 		mouse_click = get_global_mouse_position()
 
-
+#WORK IN PROGRESS, TRYING TO FIGURE OUT THE BEST WAY TO ADD IN RUSH OR FAST
+func mouse_movement(delta):
+	velocity = (mouse_click - self.global_position).normalized() * MAX_SPEED
+	move()
+	if self.global_position.distance_to(mouse_click) < 3.0:
+		state = MOVE
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+		mouse_click = get_global_mouse_position()
 
 func rush_state(delta):
 	velocity = velocity.move_toward(rush_vector * RUSH_SPEED, RUSH_ACCELERATION * delta)
@@ -122,6 +127,7 @@ func hurt_state(delta):
 
 
 func move():
+	sprite.flip_h = velocity.x < 0
 	velocity = move_and_slide(velocity)
 
 
