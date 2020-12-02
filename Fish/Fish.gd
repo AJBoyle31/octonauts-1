@@ -35,7 +35,6 @@ func _ready():
 		timer.wait_time = randomTimer.randf_range(0.5, 4.5)
 	if parent is PathFollow2D:
 		swim_points = parent.get_parent().curve.get_baked_points()
-		print(swim_points)
 
 func _physics_process(delta):
 	match state:
