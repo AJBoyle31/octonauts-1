@@ -11,7 +11,8 @@ export var FAST_SPEED = 225
 
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
-var mouse_click = Vector2.ZERO
+var mouse_position = Vector2.ZERO
+var player_state: String
 var state = MOVE
 var rush_vector = Vector2.ZERO
 var facingRight = true
@@ -64,8 +65,9 @@ func move_state(delta):
 		input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 		input_vector = input_vector.normalized()
 		if Input.is_mouse_button_pressed(BUTTON_LEFT):
-			mouse_click = get_global_mouse_position()
-			state = MOUSE
+			mouse_click("swim")
+		elif  Input.is_mouse_button_pressed(BUTTON_RIGHT):
+			mouse_click("fast")
 		else: 
 			if input_vector != Vector2.ZERO:
 				rush_vector = input_vector
@@ -84,24 +86,26 @@ func move_state(delta):
 			state = FAST
 			
 
+func mouse_click(button: String):
+	mouse_position = get_global_mouse_position()
+	player_state = button
+	state = MOUSE
 
 func mouse_state(delta):
-	sprite.play("swim")
-	velocity = (mouse_click - self.global_position).normalized() * MAX_SPEED
+	match player_state:
+		"swim": 
+			sprite.play("swim")
+			velocity = (mouse_position - self.global_position).normalized() * MAX_SPEED
+		"fast":
+			sprite.play("fast")
+			velocity = (mouse_position - self.global_position).normalized() * FAST_SPEED
 	move()
-	if self.global_position.distance_to(mouse_click) < 3.0:
+	if self.global_position.distance_to(mouse_position) < 3.0:
 		state = MOVE
 	if Input.is_mouse_button_pressed(BUTTON_LEFT):
-		mouse_click = get_global_mouse_position()
-
-#WORK IN PROGRESS, TRYING TO FIGURE OUT THE BEST WAY TO ADD IN RUSH OR FAST
-func mouse_movement(delta):
-	velocity = (mouse_click - self.global_position).normalized() * MAX_SPEED
-	move()
-	if self.global_position.distance_to(mouse_click) < 3.0:
-		state = MOVE
-	if Input.is_mouse_button_pressed(BUTTON_LEFT):
-		mouse_click = get_global_mouse_position()
+		mouse_click("swim")
+	if Input.is_mouse_button_pressed(BUTTON_RIGHT):
+		mouse_click("fast")
 
 func rush_state(delta):
 	velocity = velocity.move_toward(rush_vector * RUSH_SPEED, RUSH_ACCELERATION * delta)
