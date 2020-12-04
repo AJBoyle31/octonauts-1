@@ -1,6 +1,6 @@
 extends Fish
 
 
-export var points = 1
+export var points: int = 1
 
-onready var score = points
+onready var score: int = points

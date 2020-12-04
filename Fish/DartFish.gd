@@ -1,8 +1,8 @@
 extends Fish
 
-export var points = 2
+export var points: int = 2
 
-onready var score = points
+onready var score: int = points
 
 func _ready():
 	pass

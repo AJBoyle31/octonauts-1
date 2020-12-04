@@ -28,11 +28,11 @@ func _process(delta):
 	update_counter()
 
 
-func update_score(value):
+func update_score(value) -> void:
 	scoreLabel.text = "Score: " + str(value)
 	
 
-func update_counter():
+func update_counter() -> void:
 	var count = get_tree().get_nodes_in_group("Fish").size()
 	fishCounter.text = "Fish Left: " + str(count)
 	#if count <= 0:
@@ -40,7 +40,7 @@ func update_counter():
 	#	$ResetButton.visible = true
 	#	emit_signal("game_over")
 
-func _on_ResetButton_pressed():
+func _on_ResetButton_pressed() -> void:
 	$GameOver.visible = false
 	$ResetButton.visible = false
 	$Winner.visible = false
@@ -48,7 +48,7 @@ func _on_ResetButton_pressed():
 	PlayerScore.myScore = 0
 	get_tree().reload_current_scene()
 
-func set_hearts(value):
+func set_hearts(value) -> void:
 	hearts = clamp(value, 0, max_hearts)
 	if heartUIFull != null:
 		heartUIFull.rect_size.x = hearts * 15
@@ -58,7 +58,7 @@ func set_hearts(value):
 		heartUIFull.visible = false
 		emit_signal("game_over")
 
-func set_max_hearts(value):
+func set_max_hearts(value) -> void:
 	max_hearts = max(value, 1)
 	self.hearts = min(hearts, max_hearts)
 	if heartUIEmpty != null:
