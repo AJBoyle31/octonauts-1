@@ -127,7 +127,10 @@ func hurt_state(delta):
 
 
 func move():
-	sprite.flip_h = velocity.x < 0
+	if velocity.x < 0:
+		sprite.flip_h = true
+	elif velocity.x > 0:
+		sprite.flip_h = false
 	velocity = move_and_slide(velocity)
 
 
