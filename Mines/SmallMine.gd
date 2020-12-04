@@ -1,6 +1,6 @@
 extends Mine
 
-export var explosionDamage = -1
-onready var damage = explosionDamage
+export var explosionDamage: int = -1
+onready var damage: int = explosionDamage
 
 

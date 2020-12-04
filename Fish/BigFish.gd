@@ -2,7 +2,7 @@
 extends Fish
 
 
-export var points = 3
+export var points: int = 3
 
-onready var score = points
+onready var score: int = points
 

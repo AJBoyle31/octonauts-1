@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Levels/Tiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Props.tscn" type="PackedScene" id=2]
@@ -9,13 +9,19 @@
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Fish/BigFish.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mines/MediumMine.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Fish/Fish.tscn" type="PackedScene" id=10]
 
-[sub_resource type="Curve2D" id=2]
+[sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 1338.21, 576.122, 0, 0, 0, 0, 1287.27, 827.088, 0, 0, 0, 0, 1716.54, 828.587, 0, 0, 0, 0, 1830.41, 584.363, 0, 0, 0, 0, 1339.71, 575.373, 0, 0, 0, 0, 1338.21, 576.122 )
 }
 
-[sub_resource type="CapsuleShape2D" id=1]
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 1678.87, 1108.77, 0, 0, 0, 0, 456.252, 1100.3, 0, 0, 0, 0, 121.461, 875.693, 0, 0, 0, 0, 104.51, 771.865, 0, 0, 0, 0, 443.538, 532.427, 0, 0, 0, 0, 750.782, 517.594, 0, 0, 0, 0, 920.297, 282.393, 0, 0, 0, 0, 1884.41, 263.323, 0, 0, 0, 0, 1858.98, 818.482, 0, 0, 0, 0, 1210.59, 824.839, 0, 0, 0, 0, 750.782, 517.594 )
+}
+
+[sub_resource type="CapsuleShape2D" id=3]
 
 [node name="Level1" type="Node2D"]
 
@@ -52,13 +58,22 @@ position = Vector2( 1110, 1117.55 )
 [node name="Paths" type="Node2D" parent="Characters"]
 
 [node name="Path2D" type="Path2D" parent="Characters/Paths"]
-curve = SubResource( 2 )
+curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Characters/Paths/Path2D"]
 position = Vector2( 1338.21, 576.122 )
 rotate = false
 
 [node name="BigFish" parent="Characters/Paths/Path2D/PathFollow2D" instance=ExtResource( 8 )]
+
+[node name="Path2D2" type="Path2D" parent="Characters/Paths"]
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Characters/Paths/Path2D2"]
+position = Vector2( 1678.87, 1108.77 )
+rotate = false
+
+[node name="RedFish" parent="Characters/Paths/Path2D2/PathFollow2D" instance=ExtResource( 10 )]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
@@ -69,7 +84,7 @@ next_level = ExtResource( 6 )
 
 [node name="CollisionShape2D" parent="NextLevel" index="0"]
 position = Vector2( -0.406128, 0.420776 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 
