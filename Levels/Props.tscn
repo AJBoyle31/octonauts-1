@@ -30,7 +30,7 @@
 2/shape_one_way = false
 2/shape_one_way_margin = 0.0
 2/shapes = [  ]
-2/z_index = -1
+2/z_index = -3
 3/name = "props.png 3"
 3/texture = ExtResource( 1 )
 3/tex_offset = Vector2( 0, 0 )

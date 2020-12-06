@@ -61,3 +61,8 @@ rotate = false
 [node name="DartFish" parent="Paths/Path2D/PathFollow2D" instance=ExtResource( 6 )]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 11 )]
+
+[node name="GreenCaves" parent="ParallaxBackground" index="1"]
+visible = false
+
+[editable path="ParallaxBackground"]
