@@ -9,3 +9,4 @@ func _on_NextLevel_body_entered(body):
 	if fish_left == 0:
 		get_tree().change_scene_to(next_level)
 	
+#use change_scene instead of change_scene_to to avoid the cyclical issue

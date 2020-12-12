@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Levels/Tiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Props.tscn" type="PackedScene" id=2]
@@ -11,11 +11,15 @@
 [ext_resource path="res://Fish/BigFish.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Levels/ParallaxBackground.tscn" type="PackedScene" id=10]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/NextLevel.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Levels/Level4.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
 "points": PoolVector2Array( 0, 0, 0, 0, 264, 288, 0, 0, 0, 0, 256, 536, 0, 0, 0, 0, 168, 688, 0, 0, 0, 0, 264, 816, 0, 0, 0, 0, 264, 968, 0, 0, 0, 0, 472, 1024, 0, 0, 0, 0, 752, 1032, 0, 0, 0, 0, 968, 912, 0, 0, 0, 0, 952, 624, 0, 0, 0, 0, 768, 624, 0, 0, 0, 0, 616, 504, 0, 0, 0, 0, 696, 352, 0, 0, 0, 0, 616, 264, 0, 0, 0, 0, 872, 120, 0, 0, 0, 0, 1192, 208, 0, 0, 0, 0, 1288, 424, 0, 0, 0, 0, 1336, 672, 0, 0, 0, 0, 1400, 784, 0, 0, 0, 0, 1320, 904, 0, 0, 0, 0, 1536, 1072, 0, 0, 0, 0, 1624, 1096, 0, 0, 0, 0, 1872, 704, 0, 0, 0, 0, 1728, 520, 0, 0, 0, 0, 1928, 344, 0, 0, 0, 0, 1776, 176 )
 }
+
+[sub_resource type="CapsuleShape2D" id=2]
 
 [node name="Level3" type="Node2D"]
 
@@ -138,3 +142,12 @@ position = Vector2( 1736, 223.696 )
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
+
+[node name="NextLevel" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1994.5, 176 )
+next_level = ExtResource( 13 )
+
+[node name="CollisionShape2D" parent="NextLevel" index="0"]
+shape = SubResource( 2 )
+
+[editable path="NextLevel"]

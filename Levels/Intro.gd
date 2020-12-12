@@ -4,6 +4,7 @@ export var next_level: PackedScene
 
 onready var player = $Player
 
+
 func _ready():
 	player.alive = false
 
