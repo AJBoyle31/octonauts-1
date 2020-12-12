@@ -1,11 +1,10 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Levels/Tiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Props.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/ParallaxBackground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Levels/NextLevel.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Levels/Level2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Fish/BigFish.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Mines/MediumMine.tscn" type="PackedScene" id=9]
@@ -81,7 +80,7 @@ rotate = false
 [node name="NextLevel" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2002.62, 568.275 )
 collision_layer = 1
-next_level = ExtResource( 6 )
+level_number = 2
 
 [node name="CollisionShape2D" parent="NextLevel" index="0"]
 position = Vector2( -0.406128, 0.420776 )
