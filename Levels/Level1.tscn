@@ -78,7 +78,7 @@ rotate = false
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
 [node name="NextLevel" parent="." instance=ExtResource( 5 )]
-position = Vector2( 2002.62, 568.275 )
+position = Vector2( 2025.74, 567.331 )
 collision_layer = 1
 level_number = 2
 

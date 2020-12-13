@@ -12,7 +12,6 @@
 [ext_resource path="res://Levels/ParallaxBackground.tscn" type="PackedScene" id=10]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Levels/NextLevel.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Levels/Level4.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -20,6 +19,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id=2]
+
+[sub_resource type="CapsuleShape2D" id=3]
 
 [node name="Level3" type="Node2D"]
 
@@ -144,11 +145,20 @@ position = Vector2( 1736, 223.696 )
 [node name="ParallaxBackground" parent="." instance=ExtResource( 10 )]
 
 [node name="NextLevel" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1994.5, 176 )
-next_level = ExtResource( 13 )
+position = Vector2( 2017.2, 176 )
 level_number = 4
 
 [node name="CollisionShape2D" parent="NextLevel" index="0"]
 shape = SubResource( 2 )
 
+[node name="NextLevel2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 32.4831, 111.581 )
+level_number = 2
+previous_level = true
+
+[node name="CollisionShape2D" parent="NextLevel2" index="0"]
+shape = SubResource( 3 )
+
 [editable path="NextLevel"]
+
+[editable path="NextLevel2"]
