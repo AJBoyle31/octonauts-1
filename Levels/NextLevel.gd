@@ -1,12 +1,13 @@
 extends Area2D
 
 
-export var next_level: PackedScene
 
+export var level_number: int
+export var previous_level: bool = false
 
 func _on_NextLevel_body_entered(body):
 	var fish_left = get_tree().get_nodes_in_group("Fish").size()
-	if fish_left == 0:
-		get_tree().change_scene_to(next_level)
+	if previous_level || fish_left == 0:
+		get_tree().change_scene("res://Levels/Level" + str(level_number) + ".tscn")
 	
-#use change_scene instead of change_scene_to to avoid the cyclical issue
+
