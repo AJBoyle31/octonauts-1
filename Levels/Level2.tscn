@@ -25,12 +25,12 @@ tile_data = PoolIntArray( -130913, 0, 0, -130904, 0, 0, -130895, 0, 0, -130886, 
 [node name="Props" parent="." instance=ExtResource( 1 )]
 tile_data = PoolIntArray( 983160, 7, 0, 1245360, 1, 0, 1900783, 2, 0, 3473425, 9, 0, 3932201, 5, 0, 5505145, 6, 0, 5636228, 5, 0, 6553796, 3, 0, 7733460, 6, 0, 7798792, 2, 0, 7798869, 8, 0, 7864544, 5, 0, 8126677, 10, 0, 9044185, 6, 0, 9175090, 1, 0 )
 
-[node name="Characters" type="YSort" parent="."]
+[node name="Characters" type="Node2D" parent="."]
 
 [node name="Player" parent="Characters" instance=ExtResource( 3 )]
 position = Vector2( 960, 136 )
 
-[node name="Mines" type="YSort" parent="Characters"]
+[node name="Mines" type="Node2D" parent="Characters"]
 
 [node name="SmallMine" parent="Characters/Mines" instance=ExtResource( 10 )]
 position = Vector2( 904, 245.407 )
@@ -71,7 +71,7 @@ position = Vector2( 1080, 1128 )
 [node name="LargeMine2" parent="Characters/Mines" instance=ExtResource( 9 )]
 position = Vector2( 1952, 124.5 )
 
-[node name="Fish" type="YSort" parent="Characters"]
+[node name="Fish" type="Node2D" parent="Characters"]
 
 [node name="BigFish" parent="Characters/Fish" instance=ExtResource( 5 )]
 position = Vector2( 160, 152 )
