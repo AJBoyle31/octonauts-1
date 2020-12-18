@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Levels/Tiles.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Props.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/ParallaxBackground.tscn" type="PackedScene" id=4]
 [ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Mines/MediumMine.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Fish/Fish.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Mines/LargeMine.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Mines/SmallMine.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Fish/DartFish.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Levels/NextLevel.tscn" type="PackedScene" id=11]
+
+[sub_resource type="CapsuleShape2D" id=1]
 
 [node name="Level7" type="Node2D"]
 
@@ -20,8 +28,77 @@ position = Vector2( 102, 230 )
 
 [node name="Fish" type="Node2D" parent="Characters"]
 
+[node name="DartFish" parent="Characters/Fish" instance=ExtResource( 10 )]
+position = Vector2( 236, 394 )
+
+[node name="DartFish2" parent="Characters/Fish" instance=ExtResource( 10 )]
+position = Vector2( 236, 876 )
+
+[node name="RedFish" parent="Characters/Fish" instance=ExtResource( 7 )]
+position = Vector2( 472, 614 )
+
+[node name="RedFish2" parent="Characters/Fish" instance=ExtResource( 7 )]
+position = Vector2( 840, 464 )
+
+[node name="RedFish3" parent="Characters/Fish" instance=ExtResource( 7 )]
+position = Vector2( 1138, 264 )
+
+[node name="RedFish4" parent="Characters/Fish" instance=ExtResource( 7 )]
+position = Vector2( 1362, 130 )
+
+[node name="RedFish5" parent="Characters/Fish" instance=ExtResource( 7 )]
+position = Vector2( 1840, 1090 )
+
 [node name="Mines" type="Node2D" parent="Characters"]
+
+[node name="LargeMine" parent="Characters/Mines" instance=ExtResource( 8 )]
+position = Vector2( 320, 224 )
+
+[node name="LargeMine2" parent="Characters/Mines" instance=ExtResource( 8 )]
+position = Vector2( 232, 600 )
+
+[node name="LargeMine3" parent="Characters/Mines" instance=ExtResource( 8 )]
+position = Vector2( 252, 992 )
+
+[node name="MediumMine" parent="Characters/Mines" instance=ExtResource( 6 )]
+position = Vector2( 684, 570 )
+
+[node name="MediumMine2" parent="Characters/Mines" instance=ExtResource( 6 )]
+position = Vector2( 1014, 384 )
+
+[node name="MediumMine3" parent="Characters/Mines" instance=ExtResource( 6 )]
+position = Vector2( 1256, 204 )
+
+[node name="SmallMine" parent="Characters/Mines" instance=ExtResource( 9 )]
+position = Vector2( 1024, 620 )
+
+[node name="SmallMine2" parent="Characters/Mines" instance=ExtResource( 9 )]
+position = Vector2( 1164, 652 )
+
+[node name="SmallMine3" parent="Characters/Mines" instance=ExtResource( 9 )]
+position = Vector2( 1212, 768 )
+
+[node name="SmallMine4" parent="Characters/Mines" instance=ExtResource( 9 )]
+position = Vector2( 1354, 776 )
+
+[node name="SmallMine5" parent="Characters/Mines" instance=ExtResource( 9 )]
+position = Vector2( 1486, 926 )
+
+[node name="SmallMine6" parent="Characters/Mines" instance=ExtResource( 9 )]
+position = Vector2( 1646, 936 )
+
+[node name="SmallMine7" parent="Characters/Mines" instance=ExtResource( 9 )]
+position = Vector2( 1724, 1062 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 4 )]
 
 [node name="HUD" parent="." instance=ExtResource( 5 )]
+
+[node name="NextLevel" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1992.17, 1111.77 )
+level_number = 4
+
+[node name="CollisionShape2D" parent="NextLevel" index="0"]
+shape = SubResource( 1 )
+
+[editable path="NextLevel"]
