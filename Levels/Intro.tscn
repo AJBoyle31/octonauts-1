@@ -7,11 +7,11 @@
 [ext_resource path="res://Levels/Level1.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
-size = 64
+size = 48
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 64
+size = 24
 extra_spacing_top = 10
 font_data = ExtResource( 3 )
 
@@ -30,42 +30,67 @@ position = Vector2( 992, 624 )
 
 [node name="AnimatedSprite" parent="Player" index="0"]
 animation = "idle"
-frame = 3
+frame = 5
 
 [node name="Camera2D" parent="Player" index="3"]
 zoom = Vector2( 0.25, 0.25 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Title" type="Label" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="CanvasLayer"]
 anchor_left = 0.5
-anchor_top = 0.22
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.22
-margin_left = -216.0
-margin_top = -24.0
-margin_right = 223.0
-margin_bottom = 40.0
+anchor_bottom = 0.5
+margin_left = -258.5
+margin_top = -150.0
+margin_right = 258.5
+margin_bottom = 150.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Title" type="Label" parent="CanvasLayer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -159.0
+margin_top = -198.0
+margin_right = 159.0
+margin_bottom = -150.0
 custom_fonts/font = SubResource( 1 )
 text = "Octonauts 1.0	"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="CanvasLayer"]
-anchor_left = 0.5
-anchor_top = 0.807
-anchor_right = 0.5
-anchor_bottom = 0.807
-margin_left = -160.0
-margin_top = -16.4
-margin_right = 161.0
-margin_bottom = 95.6
+[node name="JackButton" type="Button" parent="CanvasLayer/Control"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -28.5
+margin_right = 151.0
+margin_bottom = 28.5
 custom_fonts/font = SubResource( 2 )
-text = "New Game"
+text = "Jack Levels"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+
+[node name="ZoeyButton" type="Button" parent="CanvasLayer/Control"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -153.0
+margin_top = -28.5
+margin_bottom = 28.5
+custom_fonts/font = SubResource( 2 )
+text = "Zoey Levels"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CanvasLayer/Control/JackButton" to="." method="_on_JackButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/ZoeyButton" to="." method="_on_ZoeyButton_pressed"]
 
 [editable path="Player"]

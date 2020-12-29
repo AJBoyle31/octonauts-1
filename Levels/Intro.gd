@@ -10,5 +10,11 @@ func _ready():
 
 
 
-func _on_Button_pressed():
-	get_tree().change_scene("res://Levels/Level1.tscn")
+
+func _on_JackButton_pressed():
+	get_tree().change_scene("res://Levels/Level4.tscn")
+
+
+
+func _on_ZoeyButton_pressed():
+	get_tree().change_scene("res://Levels/Level8.tscn")
