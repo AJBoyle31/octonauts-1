@@ -126,7 +126,7 @@ position = Vector2( 1848, 872 )
 
 [node name="NextLevel" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2024, 192 )
-level_number = 7
+level_number = 5
 previous_level = true
 
 [node name="CollisionShape2D" parent="NextLevel" index="0"]
@@ -134,7 +134,7 @@ shape = SubResource( 1 )
 
 [node name="NextLevel2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2040, 952 )
-level_number = 5
+level_number = 7
 
 [node name="CollisionShape2D" parent="NextLevel2" index="0"]
 shape = SubResource( 2 )

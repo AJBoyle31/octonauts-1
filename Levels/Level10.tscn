@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/Props.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/Tiles.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Mines/SmallMine.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Mines/MediumMine.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Mines/LargeMine.tscn" type="PackedScene" id=11]
+[ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=12]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -119,6 +120,8 @@ level_number = 11
 
 [node name="CollisionShape2D" parent="NextLevel2" index="0"]
 shape = SubResource( 2 )
+
+[node name="HUD" parent="." instance=ExtResource( 12 )]
 
 [editable path="NextLevel"]
 
