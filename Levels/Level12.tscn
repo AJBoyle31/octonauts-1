@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Levels/Tiles.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/Props.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Fish/BigFish.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Fish/Fish.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Fish/DartFish.tscn" type="PackedScene" id=6]
+[ext_resource path="res://HUD/HUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Levels/ParallaxBackground.tscn" type="PackedScene" id=8]
+
+[node name="Level12" type="Node2D"]
+
+[node name="Tiles" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( -1, 16, 0, -65524, 1, 0, -65515, 1, 0, -65506, 1, 0, -65497, 1, 0, -65488, 1, 0, -65479, 1, 0, -65470, 1, 0, -65461, 1, 0, -65452, 1, 0, -65443, 1, 0, -65434, 1, 0, -65425, 1, 0, -65416, 1, 0, -65407, 1, 0, -65398, 1, 0, -65389, 1, 0, -65380, 1, 0, -65371, 1, 0, -65362, 1, 0, -65353, 1, 0, -65344, 1, 0, -65335, 1, 0, -65326, 1, 0, -65317, 1, 0, -65308, 1, 0, -65299, 1, 0, -65293, 15, 0, 786431, 3, 0, 721147, 2, 0, 1376255, 3, 0, 1310971, 2, 0, 1966079, 3, 0, 1900795, 2, 0, 2555903, 3, 0, 2490619, 2, 0, 3145727, 3, 0, 3080443, 2, 0, 3735551, 3, 0, 3670267, 2, 0, 4325375, 3, 0, 4260091, 2, 0, 4915199, 3, 0, 4849915, 2, 0, 5505023, 3, 0, 5439739, 2, 0, 6094847, 3, 0, 6029563, 2, 0, 6684671, 3, 0, 6619387, 2, 0, 7274495, 3, 0, 7209211, 2, 0, 7864319, 3, 0, 7799035, 2, 0, 8454143, 3, 0, 8388859, 2, 0, 9043967, 3, 0, 8978683, 2, 0, 9240694, 21, 0, 9633791, 3, 0, 9568507, 2, 0, 10223615, 3, 0, 10158331, 2, 0, 10616831, 10, 0, 10551539, 23, 0, 11010060, 8, 0, 11010069, 8, 0, 11010078, 8, 0, 11010087, 8, 0, 11010096, 8, 0, 11010105, 8, 0, 11010114, 8, 0, 11010123, 8, 0, 11010132, 8, 0, 11010141, 8, 0, 11010150, 8, 0, 11010159, 8, 0, 11010168, 8, 0, 11010177, 8, 0, 11010186, 8, 0, 11010195, 8, 0, 11010204, 8, 0, 11010213, 8, 0, 11010222, 8, 0, 11010231, 8, 0, 11010240, 8, 0, 11010249, 8, 0, 11010258, 8, 0, 11010267, 8, 0, 11010276, 8, 0, 11010285, 8, 0 )
+
+[node name="Props" parent="." instance=ExtResource( 2 )]
+tile_data = PoolIntArray( 9371726, 7, 0, 9371839, 2, 0, 9568283, 10, 0, 10616993, 1, 0, 10748135, 5, 0 )
+
+[node name="Characters" type="Node2D" parent="."]
+
+[node name="Player" parent="Characters" instance=ExtResource( 3 )]
+position = Vector2( 1048, 616 )
+
+[node name="Fish" type="Node2D" parent="Characters"]
+
+[node name="BigFish" parent="Characters/Fish" instance=ExtResource( 4 )]
+position = Vector2( 272, 264 )
+
+[node name="BigFish2" parent="Characters/Fish" instance=ExtResource( 4 )]
+position = Vector2( 352, 568 )
+
+[node name="BigFish3" parent="Characters/Fish" instance=ExtResource( 4 )]
+position = Vector2( 288, 864 )
+
+[node name="BigFish4" parent="Characters/Fish" instance=ExtResource( 4 )]
+position = Vector2( 776, 224 )
+
+[node name="BigFish5" parent="Characters/Fish" instance=ExtResource( 4 )]
+position = Vector2( 848, 608 )
+
+[node name="BigFish6" parent="Characters/Fish" instance=ExtResource( 4 )]
+position = Vector2( 808, 984 )
+
+[node name="BigFish7" parent="Characters/Fish" instance=ExtResource( 4 )]
+position = Vector2( 1408, 1016 )
+
+[node name="BigFish8" parent="Characters/Fish" instance=ExtResource( 4 )]
+position = Vector2( 1440, 680 )
+
+[node name="BigFish9" parent="Characters/Fish" instance=ExtResource( 4 )]
+position = Vector2( 1400, 272 )
+
+[node name="BigFish10" parent="Characters/Fish" instance=ExtResource( 4 )]
+position = Vector2( 1728, 456 )
+
+[node name="BigFish11" parent="Characters/Fish" instance=ExtResource( 4 )]
+position = Vector2( 1744, 896 )
+
+[node name="RedFish" parent="Characters/Fish" instance=ExtResource( 5 )]
+position = Vector2( 544, 384 )
+
+[node name="RedFish2" parent="Characters/Fish" instance=ExtResource( 5 )]
+position = Vector2( 568, 720 )
+
+[node name="RedFish3" parent="Characters/Fish" instance=ExtResource( 5 )]
+position = Vector2( 368, 1064 )
+
+[node name="RedFish4" parent="Characters/Fish" instance=ExtResource( 5 )]
+position = Vector2( 1048, 384 )
+
+[node name="RedFish5" parent="Characters/Fish" instance=ExtResource( 5 )]
+position = Vector2( 1120, 824 )
+
+[node name="RedFish6" parent="Characters/Fish" instance=ExtResource( 5 )]
+position = Vector2( 1240, 1120 )
+
+[node name="RedFish7" parent="Characters/Fish" instance=ExtResource( 5 )]
+position = Vector2( 1456, 816 )
+
+[node name="RedFish8" parent="Characters/Fish" instance=ExtResource( 5 )]
+position = Vector2( 1400, 488 )
+
+[node name="RedFish9" parent="Characters/Fish" instance=ExtResource( 5 )]
+position = Vector2( 1696, 176 )
+
+[node name="RedFish10" parent="Characters/Fish" instance=ExtResource( 5 )]
+position = Vector2( 1752, 1192 )
+
+[node name="DartFish" parent="Characters/Fish" instance=ExtResource( 6 )]
+position = Vector2( 336, 1240 )
+
+[node name="DartFish2" parent="Characters/Fish" instance=ExtResource( 6 )]
+position = Vector2( 1048, 1288 )
+
+[node name="DartFish3" parent="Characters/Fish" instance=ExtResource( 6 )]
+position = Vector2( 1696, 1296 )
+
+[node name="DartFish4" parent="Characters/Fish" instance=ExtResource( 6 )]
+position = Vector2( 1752, 1064 )
+
+[node name="DartFish5" parent="Characters/Fish" instance=ExtResource( 6 )]
+position = Vector2( 1776, 632 )
+
+[node name="DartFish6" parent="Characters/Fish" instance=ExtResource( 6 )]
+position = Vector2( 504, 152 )
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 8 )]
+
+[node name="HUD" parent="." instance=ExtResource( 7 )]

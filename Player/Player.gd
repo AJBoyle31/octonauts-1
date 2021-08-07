@@ -19,6 +19,7 @@ var facingRight: bool = true
 var score = PlayerScore
 var alive: bool = true
 var stats = PlayerStats
+var god_mode: bool = false
 
 enum {
 	MOVE,
@@ -41,6 +42,15 @@ func _ready():
 	stats.connect("no_health", self, "_on_HUD_game_over")
 	
 func _physics_process(delta):
+	
+	if Input.is_action_just_pressed("restart_level"):
+		#get_tree().change_scene(get_tree().current_scene.filename)
+		get_tree().reload_current_scene()
+	
+	if Input.is_action_just_pressed("god_mode"):
+		god_mode = !god_mode
+		stats.god_mode = god_mode
+		
 	
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
 	knockback = move_and_slide(knockback)
@@ -148,7 +158,8 @@ func _on_BubblesTimer_timeout() -> void:
 
 func _on_Hurtbox_area_entered(area) -> void:
 	state = HURT
-	stats.health += area.get_parent().damage
+	if !god_mode:
+		stats.health += area.get_parent().damage
 
 
 func _on_HUD_game_over() -> void:
