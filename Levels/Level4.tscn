@@ -115,5 +115,4 @@ previous_level = true
 shape = SubResource( 2 )
 
 [editable path="NextLevel"]
-
 [editable path="NextLevel2"]

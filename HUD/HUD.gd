@@ -13,6 +13,7 @@ onready var scoreLabel = $Container/ScoreLabel
 onready var fishCounter = $Container/FishCounter
 onready var heartUIFull = $Health/HeartUIFull
 onready var heartUIEmpty = $Health/HeartUIEmpty
+onready var godMode = $GodMode
 #onready var score = stats.currentScore
 
 # Called when the node enters the scene tree for the first time.
@@ -23,6 +24,7 @@ func _ready():
 	self.hearts = PlayerStats.health
 	PlayerStats.connect("health_changed", self, "set_hearts")
 	PlayerStats.connect("max_health_changed", self, "set_max_hearts")
+	PlayerStats.connect("update_god_mode", self, "set_god_mode")
 
 func _process(delta):
 	update_counter()
@@ -63,3 +65,7 @@ func set_max_hearts(value) -> void:
 	self.hearts = min(hearts, max_hearts)
 	if heartUIEmpty != null:
 		heartUIEmpty.rect_size.x = max_hearts * 15
+
+func set_god_mode():
+	godMode.visible = !godMode.visible
+

@@ -30,7 +30,7 @@ position = Vector2( 992, 624 )
 
 [node name="AnimatedSprite" parent="Player" index="0"]
 animation = "idle"
-frame = 3
+frame = 2
 
 [node name="Camera2D" parent="Player" index="3"]
 zoom = Vector2( 0.25, 0.25 )
@@ -90,7 +90,10 @@ text = "Zoey Levels"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
 [connection signal="pressed" from="CanvasLayer/Control/JackButton" to="." method="_on_JackButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/ZoeyButton" to="." method="_on_ZoeyButton_pressed"]
 
 [editable path="Player"]
+[editable path="Player/Hurtbox"]
+[editable path="Player/Hitbox"]

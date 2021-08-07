@@ -93,5 +93,4 @@ shape = SubResource( 3 )
 [node name="HUD" parent="." instance=ExtResource( 7 )]
 
 [editable path="ParallaxBackground"]
-
 [editable path="NextLevel"]
